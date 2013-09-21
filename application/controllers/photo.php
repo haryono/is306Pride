@@ -15,7 +15,7 @@ class Photo_Controller extends Base_Controller
 		$rules = array(
 			'photo' => 'required|image',
 			'description' => 'required'
-			);
+			); 
 
 		$v = Validator::make($input, $rules);
 
