@@ -1,38 +1,52 @@
+
 <!DOCTYPE html>
-<html>
-<head>
-	<title>{{ $title }}</title>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-	{{ HTML::style('css/style.css') }}
-	{{ HTML::style('css/bootstrap.css') }}
-	{{ HTML::script('js/bootstrap.js') }}
-</head>
-<body>
-	@if(Session::has('message'))
-		<p style="color: green;">{{ Session::get('message') }}</p>
-	@endif
-	<div class="navbar">
-		<div class="navbar-inner">
-			{{HTML::link('/', 'Realty Wall', array('class' => 'brand'))}}
-			<ul class="nav">
-				@if (Auth::guest())
-					<li>{{ HTML::link('admin', 'Login here') }}</li>
-					<li>{{ HTML::link('register', 'Register') }}</li>
-				@else
-					<li>{{ HTML::link('admin', 'Admin') }}</li>
-					<li>{{ HTML::link('logout', 'Logout') }}</li>
-				@endif
-			</ul>
-		</div>		
-	</div>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<div class="container">
-		<h1>Realty Wall</h1>
-		<em>A place to find sweet home</em>
-	</div>
+    <title>Search</title>
 
-	<div class="container">
-		@yield('content')
-	</div>
-</body>
+    <!-- Bootstrap core CSS -->
+    {{ HTML::style('css/bootstrap.css') }}
+    {{ HTML::style('css/bootstrap-responsive.css') }}    
+
+	  </head>
+
+	  <body>
+	  <div>
+	    
+	  </div>
+	  <div class="container">
+	   <ul class="nav nav-pills">
+          @if(Session::get('menu') == "search")
+              <li class="active"> {{ HTML::link('search', 'Search', array('class' => 'active')) }}</li>
+          @else
+              <li>{{ HTML::link('search', 'Search', array('class' => 'active')) }}</li>
+          @endif
+         
+          @if(Session::get('menu') == "plan")
+              <li class="active">{{ HTML::link('plan', 'Plan', array('class' => 'active')) }}</li>
+          @else
+              <li>{{ HTML::link('plan', 'Plan', array('class' => 'active')) }}</li>
+          @endif
+          @if(Session::get('menu') == "team")
+              <li class="active">{{ HTML::link('teaminvite', 'Team Invitation', array('class' => 'active')) }}</li>
+          @else
+              <li>{{ HTML::link('teaminvite', 'Team Invitation', array('class' => 'active')) }}</li>
+          @endif
+          <li>{{ HTML::link('/', 'Log out', array('class' => 'active')) }}</li>
+       </ul>	
+	  @yield('content')
+	  </div> <!-- /container -->
+    
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
 </html>
+

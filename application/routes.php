@@ -32,9 +32,19 @@
 |
 */
 
+Route::get('/', 'flow@index');
+Route::post('/', 'flow@login');
+Route::get('search', 'flow@search');
 
+Route::get('searchresult', 'flow@searchresult');
+Route::get('plan', 'flow@plan');
+Route::get('learnmore','flow@learnmore');
+Route::get('invite','flow@invite');
 
-
+Route::get('register','flow@register');
+Route::get('teamsearch','flow@teamsearch');
+Route::get('teaminvite','flow@teaminvite');
+/*
 Route::get('/', 'home@index');
 Route::post('/', 'user@login');
 
@@ -45,7 +55,7 @@ Route::post('upload', 'photo@upload');
 
 Route::get('profile', 'user@index');
 Route::get('logout', 'user@logout');
-
+*/
 
 
 /*

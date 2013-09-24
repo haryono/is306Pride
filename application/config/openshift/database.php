@@ -69,12 +69,13 @@ return array(
 
 		'mysql' => array(
 			'driver'   => 'mysql',
-			'host'     => 'localhost',
-			'database' => 'pics',
-			'username' => 'root',
-			'password' => 'root',
+			'host'     => '127.9.175.130',
+			'database' => 'pride',
+			'username' => 'adminBFQ3pjc',
+			'password' => 'G3z-vJ-VpUlw',
 			'charset'  => 'utf8',
 			'prefix'   => '',
+			'port' => '3306',
 		),
 
 		'pgsql' => array(
