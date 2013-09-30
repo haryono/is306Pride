@@ -1,4 +1,4 @@
-@layout('layouts.default')
+@layout('layouts.master')
 @section('content')
         <form class="form text-center">
           <h2 >Team Invitation</h2>
@@ -9,40 +9,21 @@
         <ul class="thumbnails">
           <li class="span4">
             <div class="thumbnail">
-              <h3>Thumbnail label</h3>
-              <p>Thumbnail caption...</p>
-              <p><a href="#" class="btn btn-primary">Button</a></p>
+              {{ HTML::link('learnmore', 'Learn More', array('class' => 'pull-right btn btn-primary')) }}
+              
+              <h4>Course Name</h4>
+              <h4>Professor Name</h4>
+
+              <span class="label label-success">Recommendation</span>
+              <span class="label label-success">Price Range</span>
             </div>
-            <h3>Thumbnail label</h3>
-            <p>Thumbnail caption...</p>
-            <img src="js/holder.js/110x100">
-            <img src="js/holder.js/110x100">
-            <p><a href="#" class="btn btn-primary">Button</a> <a href="#" class="btn btn-default">Button</a></p>
+
+            <h4>Team</h4>
+            <img src="http://www.clker.com/cliparts/g/c/W/l/H/m/people-icon-md.png" class="icon">
+            <img src="http://www.clker.com/cliparts/g/c/W/l/H/m/people-icon-md.png" class="icon">
+            <p><a href="#" class="btn btn-primary">Accept</a> <a href="#" class="btn btn-default">Reject</a></p>
           </li>
-          <li class="span4">
-            <div class="thumbnail">
-              <h3>Thumbnail label</h3>
-              <p>Thumbnail caption...</p>
-              <p><a href="#" class="btn btn-primary">Button</a></p>
-            </div>
-            <h3>Thumbnail label</h3>
-            <p>Thumbnail caption...</p>
-            <img src="js/holder.js/110x100">
-            <img src="js/holder.js/110x100">
-            <p><a href="#" class="btn btn-primary">Button</a> <a href="#" class="btn btn-default">Button</a></p>
-          </li>
-          <li class="span4">
-            <div class="thumbnail">
-              <h3>Thumbnail label</h3>
-              <p>Thumbnail caption...</p>
-              <p><a href="#" class="btn btn-primary">Button</a></p>
-            </div>
-            <h3>Thumbnail label</h3>
-            <p>Thumbnail caption...</p>
-            <img src="js/holder.js/110x100">
-            <img src="js/holder.js/110x100">
-            <p><a href="#" class="btn btn-primary">Button</a> <a href="#" class="btn btn-default">Button</a></p>
-          </li>
+          
         </ul>
 
 @endsection

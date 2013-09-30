@@ -1,16 +1,20 @@
-@layout('layouts.default')
+@layout('layouts.master')
 @section('content')
+    <div data-role="content" >
+      <center><h1>Course Search:</h1></center>
 
-        <br>
-        <br>
-        <form class="form text-center">
-          <h2 >Search</h2>
-          <br>
-          <br>
-          <input type="text" class="span10"><br>
-          {{ HTML::link('searchresult', 'Search', array('class' => 'btn btn-primary')) }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-          <button class="btn btn-primary">I am Feeling Lucky</button>
-
-        </form>
-
+      {{Form::open('searchresult','get')}}
+		<table style='width:100%'><tr>
+		    <td>
+		    	<input id="searchinput1" placeholder="Course search"  data-inline="true" value="" type="search" data-mini="true" data-theme='d'>
+		    </td>
+		    <td style='font-size:80%; '>
+		          <input type="submit" data-role="button"  data-inline="true" data-mini="true" data-iconpos="notext" data-icon="search"/>
+		    </td>
+		</tr></table>
+		{{Form::close()}}
+        
+        
+            
+    </div>
 @endsection

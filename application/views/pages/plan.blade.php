@@ -1,37 +1,48 @@
-@layout('layouts.default')
+@layout('layouts.master')
 @section('content')
-
-        <form class="form text-center">
-          <h2 >Search Results </h2>
-          <input type="text" placeholder="Search" class="span10">
+   <form class="form text-center">
+          <h2 >Plan </h2>
         </form>
 
 
         <ul class="thumbnails">
           <li class="span4">
             <div class="thumbnail">
-              <img data-src="holder.js/300x200" alt="">
-              <h3>Thumbnail label</h3>
-              <p>Thumbnail caption...</p>
-              <p><a href="#" class="btn btn-primary">Button</a> <a href="#" class="btn btn-default">Button</a></p>
+              {{ HTML::link('learnmore', 'Learn More', array('class' => 'pull-right btn btn-primary')) }}
+              
+              <h4>Course Name</h4>
+              <h4>Professor Name</h4>
+
+              <span class="label label-success">Recommendation</span>
+              <span class="label label-success">Price Range</span>
+              
             </div>
           </li>
           <li class="span4">
             <div class="thumbnail">
-              <img data-src="holder.js/300x200" alt="">
-              <h3>Thumbnail label</h3>
-              <p>Thumbnail caption...</p>
-              <p><a href="#" class="btn btn-primary">Button</a> <a href="#" class="btn btn-default">Button</a></p>
+              {{ HTML::link('learnmore', 'Learn More', array('class' => 'pull-right btn btn-primary','data-transition'=>'slide')) }}
+              
+              <h4>Course Name</h4>
+              <h4>Professor Name</h4>
+
+              <span class="label label-success">Recommendation</span>
+              <span class="label label-success">Price Range</span>
+              
             </div>
           </li>
           <li class="span4">
             <div class="thumbnail">
-              <img data-src="holder.js/300x200" alt="">
-              <h3>Thumbnail label</h3>
-              <p>Thumbnail caption...</p>
-              <p><a href="#" class="btn btn-primary">Button</a> <a href="#" class="btn btn-default">Button</a></p>
+              {{ HTML::link('learnmore', 'Learn More', array('class' => 'pull-right btn btn-primary','data-transition'=>'slide')) }}
+              
+              <h4>Course Name</h4>
+              <h4>Professor Name</h4>
+
+              <span class="label label-success">Recommendation</span>
+              <span class="label label-success">Price Range</span>
+              
             </div>
           </li>
+          
         </ul>
 
 @endsection

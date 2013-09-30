@@ -47,6 +47,7 @@ class Flow_Controller extends Base_Controller {
 
 	public function get_register(){
 		Session::forget('menu');
+		Session::flash("success","success");
 		return View::make('pages.registration');
 	}
 

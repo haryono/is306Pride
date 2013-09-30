@@ -10,7 +10,12 @@
     <!-- Bootstrap core CSS -->
     {{ HTML::style('css/bootstrap.css') }}
     {{ HTML::style('css/bootstrap-responsive.css') }}    
-
+    <style type="text/css">
+    .icon{
+      height: 100px;
+      width:100px;
+    }
+    </style>
 	  </head>
 
 	  <body>
@@ -45,6 +50,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/holder.js"></script>
     <script src="js/jquery-1.7.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
