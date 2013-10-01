@@ -8,8 +8,8 @@
     <p>Professor Benjamin
     <p>
     <fieldset class="ui-grid-a">
-        <div class="ui-block-a"><input type="submit" value="3000 likes" data-mini="true"></div>
-        <div class="ui-block-b"><input type="reset" value="e$ 80-90" data-mini="true"></div>
+        <div class="ui-block-a"><input type="reset" value="3000 likes" data-mini="true" data-theme="g"></div>
+        <div class="ui-block-b"><input type="reset" value="e$ 80-90" data-mini="true" data-theme="g"></div>
     </fieldset>
     </p>
 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" align="right">
@@ -19,7 +19,7 @@
         <option value="medium">2013 term 2</option>
         <option value="large">2013 term 3</option>
     </select>
-    <a href="{{URL::to('plan');}}" data-role="button" data-icon="arrow-r" data-theme="e" data-iconpos="right">Add to Plan</a>
+    <a href="{{URL::to('plan');}}" data-transition="slide" data-role="button" data-icon="arrow-r" data-theme="e" data-iconpos="right">Add to Plan</a>
 </fieldset>
     </li>
     <!--item 2-->
@@ -59,9 +59,25 @@
         <div class="ui-bar ui-bar-a" style="height:60px"><img src="{{URL::to_asset('gallerythumbs/2.jpg');}}" alt="images/2.jpg" title="great!"/></div></div>
     <div class="ui-block-b" style="width:75%"><div class="ui-bar ui-bar-a" style="height:60px">
          <div class="ui-block-b"><a href="index.html" data-role="button" data-inline="true" data-mini="true">Recommend</a></div>
-         <div class="ui-block-b" data-mini="true"><a href="index.html" data-role="button" data-inline="true" data-mini="true">Add Comment</a></div>
+         <div class="ui-block-b" data-mini="true"><a href="#popupLogin" data-rel="popup" data-position-to="window"  data-transition="slide" data-role="button" data-inline="true" data-mini="true">Add Comment</a></div>
     </div></div>
+ 
+    <!-- pop up box -->
+    <div data-role="popup" id="popupLogin" >
+        <form>
+            <div style="padding:10px 20px;">
+                <h3>Add Comments</h3>
+                <label for="un" class="ui-hidden-accessible">Title:</label>
+                <input type="text" name="title" id="un" value="" placeholder="Title .." data-theme="e" >
+                <label for="pw" class="ui-hidden-accessible">Comments:</label>
+                <textarea cols="20" rows="8" name="comments" id="textarea" placeholder="Comments.." data-theme="e"></textarea>
+                <button type="submit" data-theme="a" data-icon="check">Submit</button>
+            </div>
+        </form>
+    </div>    
+    <!--end of pop up box-->
 </div><!-- /grid-a -->
-    
+
+
 @endsection
   

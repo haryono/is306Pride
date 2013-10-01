@@ -26,14 +26,14 @@
       <h2>IDP</h2>
       <p>Professor Benjamin
       <p><fieldset class="ui-grid-a">
-      <div class="ui-block-a"><input type="submit" value="3000 likes" data-mini="true"></div>
-      <div class="ui-block-b"><input type="reset" value="e$ 80-90" data-mini="true"></div>
+      <div class="ui-block-a"><input type="reset" value="3000 likes" data-mini="true" data-theme="g"></div>
+      <div class="ui-block-b"><input type="reset" value="e$ 80-90" data-mini="true" data-theme="g"></div>
       </fieldset></p>
       <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" align="right" class="ui-li-aside">
-          <a href="{{URL::to('learnmore');}}" data-role="button" data-icon="arrow-r" data-theme="b" data-iconpos="right" >Learn more</a>
+          <a href="{{URL::to('learnmore');}}" data-transition="slide" data-role="button" data-icon="arrow-r" data-theme="b" data-iconpos="right" >Learn more</a>
       </fieldset>
       <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-        <button disabled="">Team:</button><button>IS306Team</button><a href="{{URL::to('teamsearch');}}" data-role="button" data-icon="arrow-r" data-theme="e" data-iconpos="right" >Teammate search</a>
+        <button disabled="">Team:</button><button>IS306</button><a href="{{URL::to('teamsearch');}}" data-transition="slide" data-role="button" data-icon="arrow-r" data-theme="e" data-iconpos="right" >Find Team</a>
       </fieldset>
       <fieldset>
         <img src="{{URL::to_asset('gallerythumbs/default.png');}}" alt="images/1.jpg" title="this is a description"/>
@@ -44,20 +44,21 @@
     </li>
     
 <div data-role="collapsible-set" data-theme="a" data-content-theme="d">
-    <div data-role="collapsible">
-        <h3>Term 2</h3>
+    <div data-role="collapsible" align="left">
+        <h2>Term 2</h2>
         <li data-theme="d">
+        &nbsp;
         <h2>IS480</h2>
-        <p>Professor Coldstone
-        <p><fieldset data-type="horizontal">
-        <div class="ui-block-a"><input type="submit" value="200 likes" data-mini="true" style="white-space:normal"></div>
-        <div class="ui-block-b"><input type="reset" value="e$ 10-20" data-mini="true" style="white-space:normal"></div>
+        <p>Professor Coldstone</p>
+        <p><fieldset class="ui-grid-a">
+        <div class="ui-block-a"><input type="reset" value="200 likes" data-mini="true" data-theme="g"></div>
+        <div class="ui-block-b"><input type="reset" value="e$ 10-10" data-mini="true" data-theme="g"></div>
         </fieldset></p>
         <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" align="right" class="ui-li-aside">
-            <a href="{{URL::to('learnmore');}}" data-role="button" data-icon="arrow-r" data-theme="b" data-iconpos="right" >Learn more</a>
+            <a href="{{URL::to('learnmore');}}" data-role="button" data-icon="arrow-r" data-theme="b" data-transition="slide" data-iconpos="right" >Learn more</a>
         </fieldset>
         <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <button disabled="">Team:</button><button>IS306Team</button><a href="{{URL::to('teamsearch');}}" data-role="button" data-icon="arrow-r" data-theme="e" data-iconpos="right" >Teammate search</a>
+          <button disabled="">Team:</button><button>IS306</button><a href="{{URL::to('teamsearch');}}" data-role="button" data-icon="arrow-r" data-theme="e" data-iconpos="right" data-transition="slide">Find Team</a>
         </fieldset>
         <fieldset>
           <img src="{{URL::to_asset('gallerythumbs/default.png');}}" alt="images/1.jpg" title="this is a description"/>

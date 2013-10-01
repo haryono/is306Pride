@@ -34,14 +34,14 @@
     		<center><h2>Welcome to RopeTo4.3</h2></center>
             {{Form::open('/','post')}}
             @if(Session::has('success'))
-             <div class="message">Your have registered successfully.</div>
+             <!--div class="message">Your have registered successfully.</div-->
             @endif
             <hr>
             <input name="Name" id="textinput5" placeholder="Email Address" value="" type="text" data-theme="d">
             <input name="" id="textinput2" placeholder="Password" value="" type="text" data-theme="d">
-        <input type="submit" value="Login" data-theme="a" data-transition='flow'>
+        <input type="submit" value="Login" data-theme="a" data-transition='slide'>
         <h4>Have not registered?</h4>
-        <a href="{{URL::to('register')}}" data-role="button" data-theme="e" data-transition='slidefade'> Click here to register </a>
+        <a href="{{URL::to('register')}}" data-role="button" data-theme="e" data-transition='slide'> Click here to register </a>
     </div>
 {{Form::close()}}
 @endsection

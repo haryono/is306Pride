@@ -32,7 +32,7 @@
     </div>
     <!-- End Header -->
     <!-- Content Start -->
-   <div data-role="content">
+   <div data-role="content" align="center"style="max-width:400px; margin:0 auto;">
     @yield('content')
    </div>
     <!-- End Content -->

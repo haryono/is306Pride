@@ -19,8 +19,8 @@
     <p>Professor Benjamin
     <p>
     <fieldset class="ui-grid-a">
-        <div class="ui-block-a"><input type="submit" value="3000 likes" data-mini="true"></div>
-        <div class="ui-block-b"><input type="reset" value="e$ 80-90" data-mini="true"></div>
+        <div class="ui-block-a"><input type="submit" value="3000 likes" data-mini="true" data-theme="g"></div>
+        <div class="ui-block-b"><input type="reset" value="e$ 80-90" data-mini="true" data-theme="g"></div>
     </fieldset>
     </p>
   </ul>

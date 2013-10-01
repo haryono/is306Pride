@@ -9,7 +9,7 @@
               <input type="password" id="password" class="span4" name="password" placeholder="Password" data-theme='d'>
               <input type="password" id="password" class="span4" name="password" placeholder="Repeat Password" data-theme='d'>
 
-              {{ HTML::link('/', 'Register', array('data-role'=>'button', 'class' => 'btn','data-theme'=>'e' , 'data-transition'=>'slidedown')) }}
+              {{ HTML::link('/', 'Register', array('data-role'=>'button', 'class' => 'btn','data-theme'=>'e' , 'data-transition'=>'slide', 'data-direction'=>'reverse')) }}
               </form>    
             </div>
           </div>
