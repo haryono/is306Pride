@@ -12,28 +12,18 @@
 
 
   <h2 align="center">Teammate Search</h2>
-  
-  
-  <div class="section-header"><h4 class="title">Plan Info</h4></div>
-  <!-- Block one -->
-  <div class="clleft blocks">
-      <h5>Professor Name: </h5>           
-  </div>
-  <!-- End Block One -->
-  <!-- Block Two -->
-  <div class="clleft blocks">
-      <h5>Course Name: </h5>
-  </div>
-  <!-- End Block Twon -->
-  <!-- Block Three -->
-  <div class="ui-grid-a">
-    <div class="ui-block-a">
-      <h6>10 Recommendations</h6>
-    </div>
-    <div class="ui-block-b">
-      <h6>Price Range:</h6>
-    </div>
-  </div>
+  <ul data-role="listview" data-inset="true" >
+    <li data-role="list-divider" data-theme="a">Plan Information</li>
+    <li data-theme="d">
+    <h2>Interactive Design Protocol</h2>
+    <p>Professor Benjamin
+    <p>
+    <fieldset class="ui-grid-a">
+        <div class="ui-block-a"><input type="submit" value="3000 likes" data-mini="true"></div>
+        <div class="ui-block-b"><input type="reset" value="e$ 80-90" data-mini="true"></div>
+    </fieldset>
+    </p>
+  </ul>
 
 
     <input type="text" placeholder="Search" class="span10"> 

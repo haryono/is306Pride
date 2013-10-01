@@ -19,6 +19,8 @@
 
   <script src="{{URL::to_asset('assets/flex-slider/jquery.flexslider-min.js');}}"></script>
   <script src="{{URL::to_asset('js/main.js');}}"></script>
+
+  
 </head>
 <body>
 
