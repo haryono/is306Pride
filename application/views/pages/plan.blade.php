@@ -1,14 +1,17 @@
 @layout('layouts.master')
 @section('content')
+{{ render('common.errors_display') }}
   <center><h2>Plan</h2></center>
+
+  
 <ul data-role="listview" data-inset="true">
-  <li data-role="list-divider" data-theme="e">Student Information <span class="ui-li-count">1</span></li>
-    <li><a href="index.html">
-    <h2>Avery Walker</h2>
+  <li data-role="list-divider" data-theme="a">Student Information</li>
+    <li data-theme="d">
+    <br>
     <p><strong>Re: Dinner Tonight</strong></p>
     <p>Sure, let's plan on meeting at Highland Kitchen at 8:00 tonight. Can't wait! </p>
-        <p class="ui-li-aside"><strong>4:48</strong>PM</p>
-    </a></li>
+    <p><strong>4:48</strong>PM</p> 
+    </li>
 </ul>  
 
 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" align="center" >
@@ -23,65 +26,179 @@
 <ul data-role="listview" data-inset="true" >
     <li data-role="list-divider" data-theme="a">Enrolled</li>
     <li data-theme="d">
-      <h2>IDP</h2>
-      <p>Professor Benjamin
-      <p><fieldset class="ui-grid-a">
-      <div class="ui-block-a"><input type="reset" value="3000 likes" data-mini="true" data-theme="g"></div>
-      <div class="ui-block-b"><input type="reset" value="e$ 80-90" data-mini="true" data-theme="g"></div>
-      </fieldset></p>
-      <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" align="right" class="ui-li-aside">
-          <a href="{{URL::to('learnmore');}}" data-transition="slide" data-role="button" data-icon="arrow-r" data-theme="b" data-iconpos="right" >Learn more</a>
-      </fieldset>
-      <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-        <button disabled="">Team:</button><button>IS306</button><a href="{{URL::to('teamsearch');}}" data-transition="slide" data-role="button" data-icon="arrow-r" data-theme="e" data-iconpos="right" >Find Team</a>
-      </fieldset>
-      <fieldset>
-        <img src="{{URL::to_asset('gallerythumbs/default.png');}}" alt="images/1.jpg" title="this is a description"/>
-        <img src="{{URL::to_asset('gallerythumbs/default.png');}}" alt="images/2.jpg" title="great!"/>
-      </fieldset>
-      <fieldset>Haryono&nbsp;&nbsp;&nbsp;Fu yu</fieldset>
-      <fieldset><font color="green">Accepted</font>&nbsp;<font color="green">Accepted</font></fieldset>
+      <center><h4 style="white-space:normal">Enterprise Web Solution</h4></center>
+      <center><h4>Professor KK</h4></center>
+      <div class="ui-grid-a">
+          <div class="ui-block-a"><input type="reset" value="e$ 80-90" data-mini="true" data-theme="g"></div>
+          <div class="ui-block-b"><input type="reset" value="3000 likes" data-mini="true" data-theme="g"></div>
+      </div>  
+
+      <div class="ui-grid-a">
+        <div class="ui-block-a">
+        <button disabled="" data-mini="true" data-theme="b">2013 Term 1</button>
+        </div>
+        <div class="ui-block-b">
+            
+        <a href="{{URL::to('learnmore');}}" data-mini="true" data-transition="slide" data-role="button" data-icon="arrow-r" data-theme="e" data-iconpos="right" >Learn more</a>
+        </div>
+
+      </div>
+      <center><h4 style="white-space:normal">Team</h4></center>
+      <div class="ui-grid-c">
+        <div class="ui-block-a">
+          <img src="{{URL::to_asset('gallerythumbs/default.png');}}" class="icon">
+          <h6 style="font-size:13px">Name</h6>
+          <font color="green" style="font-size:13px">Accepted</font>
+        </div>
+        <div class="ui-block-b">
+          <img src="{{URL::to_asset('gallerythumbs/default.png');}}" class="icon">
+          <h6 style="font-size:13px">Name</h6>
+          <font color="green" style="font-size:13px">Accepted</font>
+        </div>
+        <div class="ui-block-c">
+          <img src="{{URL::to_asset('gallerythumbs/default.png');}}" class="icon">
+          <h6 style="font-size:13px">Name</h6>
+          <font color="orange" style="font-size:13px">Pending</font>
+        </div>
+        <div class="ui-block-d">
+          <img src="{{URL::to_asset('gallerythumbs/default.png');}}" class="icon">
+          <h6 style="font-size:13px">Name</h6>
+          <span style="font-size:13px">Pending</span>
+        </div>  
+      </div>
+
+      
+</ul>    
+
+<ul data-role="listview" data-inset="true" >
+    <li data-role="list-divider" data-theme="a">Planned</li>
+    <li data-theme="d">
+      <center><h4 style="white-space:normal">Interactive Design Protocol</h4></center>
+      <center><h4>Professor Benjamin</h4></center>
+      <div class="ui-grid-a">
+          <div class="ui-block-a"><input type="reset" value="e$ 80-90" data-mini="true" data-theme="g"></div>
+          <div class="ui-block-b"><input type="reset" value="3000 likes" data-mini="true" data-theme="g"></div>
+      </div>  
+
+      <div class="ui-grid-a">
+        <div class="ui-block-a">
+        <button disabled="" data-mini="true" data-theme="b">2013 Term 1</button>
+        </div>
+        <div class="ui-block-b">
+            
+        <a href="{{URL::to('learnmore');}}" data-mini="true" data-transition="slide" data-role="button" data-icon="arrow-r" data-theme="e" data-iconpos="right" >Learn more</a>
+        </div>
+
+      </div>
+
+      <center><h4 style="white-space:normal">Team</h4></center>
+      <div class="ui-grid-c">
+        <div class="ui-block-a">
+          <img src="{{URL::to_asset('gallerythumbs/default.png');}}" class="icon">
+          <h6 style="font-size:13px">Name</h6>
+          <font color="green" style="font-size:13px">Accepted</font>
+        </div>
+        <div class="ui-block-b">
+          <img src="{{URL::to_asset('gallerythumbs/default.png');}}" class="icon">
+          <h6 style="font-size:13px">Name</h6>
+          <font color="green" style="font-size:13px">Accepted</font>
+        </div>
+        <div class="ui-block-c">
+          <img src="{{URL::to_asset('gallerythumbs/default.png');}}" class="icon">
+          <h6 style="font-size:13px">Name</h6>
+          <font color="orange" style="font-size:13px">Pending</font>
+        </div>
+        <div class="ui-block-d">
+          <img src="{{URL::to_asset('gallerythumbs/default.png');}}" class="icon">
+          <h6 style="font-size:13px">Name</h6>
+          <span style="font-size:13px">Pending</span>
+        </div>  
+      </div>
+
+      <div class="ui-grid-a">
+          <div class="ui-block-a" style="width:0%">
+          </div>
+          <div class="ui-block-b" style="width:100%">
+              <a href="{{URL::to('teamsearch');}}" data-role="button" data-mini="true" data-icon="arrow-r" data-theme="e" data-iconpos="right" >Teammate Search</a>
+          </div>
+      </div>
+
+      <div class="ui-grid-a">
+        <div class="ui-block-a">
+        <button style="background-color:red" data-icon="minus" data-mini="true">Delete</button>
+        </div>
+        <div class="ui-block-b">
+        <a href="#" data-role="button" data-icon="check" data-theme="a" data-mini="true">Get the bid !</a>
+        </div>
+
+      </div>
     </li>
-    
-<div data-role="collapsible-set" data-theme="a" data-content-theme="d">
-    <div data-role="collapsible" align="left">
-        <h2>Term 2</h2>
-        <li data-theme="d">
-        &nbsp;
-        <h2>IS480</h2>
-        <p>Professor Coldstone</p>
-        <p><fieldset class="ui-grid-a">
-        <div class="ui-block-a"><input type="reset" value="200 likes" data-mini="true" data-theme="g"></div>
-        <div class="ui-block-b"><input type="reset" value="e$ 10-10" data-mini="true" data-theme="g"></div>
-        </fieldset></p>
-        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" align="right" class="ui-li-aside">
-            <a href="{{URL::to('learnmore');}}" data-role="button" data-icon="arrow-r" data-theme="b" data-transition="slide" data-iconpos="right" >Learn more</a>
-        </fieldset>
-        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-          <button disabled="">Team:</button><button>IS306</button><a href="{{URL::to('teamsearch');}}" data-role="button" data-icon="arrow-r" data-theme="e" data-iconpos="right" data-transition="slide">Find Team</a>
-        </fieldset>
-        <fieldset>
-          <img src="{{URL::to_asset('gallerythumbs/default.png');}}" alt="images/1.jpg" title="this is a description"/>
-          <img src="{{URL::to_asset('gallerythumbs/default.png');}}" alt="images/2.jpg" title="great!"/>
-        </fieldset>
-        <fieldset>Haryono&nbsp;&nbsp;&nbsp;Fu yu</fieldset>
-        <fieldset><font color="green">Accepted</font>&nbsp;<font color="grey">Pending</font></fieldset>
-        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" align="right">
-          <button style="background-color:red" data-icon="minus">Delete</button><a href="#" data-role="button" data-icon="check" data-theme="a">Get the bid !</a>
-        </fieldset>
-      </li>
-    </div>
-    <div data-role="collapsible" data-theme="d" data-content-theme="a">
-        <h3>Term 3</h3>
-        <p>Content</p>
-    </div>
-    <div data-role="collapsible">
-        <h3>Term 4</h3>
-        <p>Content</p>
-    </div>
-</div>    
-</ul>
-    
+</ul>  
+
+<ul data-role="listview" data-inset="true" >
+    <li data-role="list-divider" data-theme="a">Planned</li>
+    <li data-theme="d">
+      <center><h4 style="white-space:normal">Interactive Design Protocol</h4></center>
+      <center><h4>Professor Benjamin</h4></center>
+      <div class="ui-grid-a">
+          <div class="ui-block-a"><input type="reset" value="e$ 80-90" data-mini="true" data-theme="g"></div>
+          <div class="ui-block-b"><input type="reset" value="3000 likes" data-mini="true" data-theme="g"></div>
+      </div>  
+
+      <div class="ui-grid-a">
+        <div class="ui-block-a">
+        <button disabled="" data-mini="true" data-theme="b">2013 Term 1</button>
+        </div>
+        <div class="ui-block-b">
+            
+        <a href="{{URL::to('learnmore');}}" data-mini="true" data-transition="slide" data-role="button" data-icon="arrow-r" data-theme="e" data-iconpos="right" >Learn more</a>
+        </div>
+
+      </div>
+
+      <center><h4 style="white-space:normal">Team</h4></center>
+
+      <div class="ui-grid-c">
+        <div class="ui-block-a">
+          <img src="{{URL::to_asset('gallerythumbs/default.png');}}" class="icon">
+          <h6 style="font-size:13px">Name</h6>
+          <font color="green" style="font-size:13px">Accepted</font>
+        </div>
+        <div class="ui-block-b">
+          <img src="{{URL::to_asset('gallerythumbs/default.png');}}" class="icon">
+          <h6 style="font-size:13px">Name</h6>
+          <font color="green" style="font-size:13px">Accepted</font>
+        </div>
+        <div class="ui-block-c">
+          <img src="{{URL::to_asset('gallerythumbs/default.png');}}" class="icon">
+          <h6 style="font-size:13px">Name</h6>
+          <font color="green" style="font-size:13px">Accepted</font>
+        </div>
+        <div class="ui-block-d">
+          <img src="{{URL::to_asset('gallerythumbs/default.png');}}" class="icon">
+          <h6 style="font-size:13px">Name</h6>
+          <font color="green" style="font-size:13px">Accepted</font>
+        </div>  
+      </div>
+      <div class="ui-grid-a">
+          <div class="ui-block-a" style="width:0%">
+          </div>
+          <div class="ui-block-b" style="width:100%">
+              <a href="{{URL::to('teamsearch');}}" data-mini="true" data-role="button" data-icon="arrow-r" data-theme="e" data-iconpos="right" >Teammate Search</a>
+          </div>
+      </div>
+
+      <div class="ui-grid-a">
+        <div class="ui-block-a">
+        <button style="background-color:red" data-mini="true" data-icon="minus">Delete</button>
+        </div>
+        <div class="ui-block-b">
+        <a href="#" data-role="button" data-icon="check" data-mini="true" data-theme="a">Get the bid !</a>
+        </div>
+
+      </div>
+    </li>
+</ul>  
     
 @endsection
   

@@ -1,6 +1,6 @@
 @layout('layouts.master')
 @section('content')
-
+{{ render('common.errors_display') }}
   <style type="text/css" media="screen">
     .icon{
       height:80px;
@@ -19,52 +19,44 @@
   </style>
 
 
-  <h2 align="center">Teammate Search</h2>
-          
+  <h2 align="center">Invite</h2>
+    <ul data-role="listview" data-inset="true" >
+      <li data-role="list-divider" data-theme="a">Plan Information</li>
+      <li data-theme="d">
+      <center><h4 style="white-space:normal">Interactive Design Protocol</h4></center>
+      <center><h4>Professor Benjamin</h4></center>
+      <div class="ui-grid-a">
+          <div class="ui-block-a"><input type="reset" value="e$ 80-90" data-mini="true" data-theme="g"></div>
+          <div class="ui-block-b"><input type="reset" value="3000 likes" data-mini="true" data-theme="g"></div>
+      </div>  
 
-    <div class="section-header"><h4 class="title">Plan Info</h4></div>
-    <!-- Block one -->
-    <div class="clleft blocks">
-        <h5>Professor Name: </h5>           
-    </div>
-    <!-- End Block One -->
-    <!-- Block Two -->
-    <div class="clleft blocks">
-        <h5>Course Name: </h5>
-    </div>
-    <!-- End Block Twon -->
-    <!-- Block Three -->
-    <div class="ui-grid-a">
-      <div class="ui-block-a">
-        <h6>10 Recommendations</h6>
+      <div class="ui-grid-a">
+        <div class="ui-block-a">
+        <button disabled=""  data-theme="b">2013 Term 2</button>
+        </div>
+        <div class="ui-block-b">
+            
+        <a href="{{URL::to('learnmore');}}" data-transition="slide" data-role="button" data-icon="arrow-r" data-theme="e" data-iconpos="right" >Learn more</a>
+        </div>
       </div>
-      <div class="ui-block-b">
-        <h6>Price Range:</h6>
-      </div>
-    </div>
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <img src="{{URL::to_asset('gallerythumbs/default.png');}}" class="icon">
+            <h6>FU YU</h6>
+            <h6>Info</h6>
+          </div>
+          <div class="ui-block-b">
+            <div class="ui-field-contain">
+                <!--<label for="submit-5"></label>-->
+                <br><br>
+                <button type="submit" id="submit-5">Send Invitation</button>
+            </div>
+          </div>
+        </div>
+    </ul>
 
 
-  <div class="ui-grid-a">
-    <div class="ui-block-a">
-      <img src="http://www.clker.com/cliparts/g/c/W/l/H/m/people-icon-md.png" class="icon">
-      <h6>FU YU</h6>
-      <h6>Info</h6>
-    </div>
-    <div class="ui-block-b">
-      <div class="ui-field-contain">
-        <!--<label for="select-native-5"></label>-->
-        <select name="select-native-5" id="select-native-5" data-mini="true">
-            <option value="small">2013-14 Term2</option>
-            <option value="medium">2014-15 Term1</option>
-            <option value="large">2014-15 Term2</option>
-        </select>
-      </div>
-      <div class="ui-field-contain">
-          <!--<label for="submit-5"></label>-->
-          <button type="submit" id="submit-5" data-mini="true">Send Invitation</button>
-      </div>
-    </div>
-  </div>
+  
 
 
 @endsection

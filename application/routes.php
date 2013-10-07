@@ -32,29 +32,39 @@
 |
 */
 
-Route::get('/', 'flow@index');
-Route::post('/', 'flow@login');
-Route::get('search', 'flow@search');
+// Users controllers
+Route::get('/', 'flows@index');
+Route::post('/', 'users@login');
+Route::get('register','users@register');
+Route::post('register','users@register');
+Route::get('logout','users@logout');
 
-Route::get('searchresult', 'flow@searchresult');
-Route::get('plan', 'flow@plan');
-Route::get('learnmore','flow@learnmore');
-Route::get('invite','flow@invite');
+// Course search controllers
+Route::get('search', 'courses@search');
+Route::post('search', 'courses@search');
 
-Route::get('register','flow@register');
-Route::get('teamsearch','flow@teamsearch');
-Route::get('teaminvite','flow@teaminvite');
+Route::get('searchresult', 'flows@searchresult');
+Route::get('plan', 'flows@plan');
+Route::get('learnmore','flows@learnmore');
+Route::get('invite','flows@invite');
+
+Route::get('teamsearch','flows@teamsearch');
+Route::get('teamsearchresults','flows@teamsearchresults');
+Route::get('teaminvite','flows@teaminvite');
+Route::get('try',array(function(){
+	return View::make('pages.try');
+}));
 /*
 Route::get('/', 'home@index');
-Route::post('/', 'user@login');
+Route::post('/', 'users@login');
 
-Route::get('register', 'user@create');
-Route::post('register', 'user@create');
+Route::get('register', 'users@create');
+Route::post('register', 'users@create');
 
-Route::post('upload', 'photo@upload');
+Route::post('upload', 'photos@upload');
 
-Route::get('profile', 'user@index');
-Route::get('logout', 'user@logout');
+Route::get('profile', 'users@index');
+Route::get('logout', 'users@logout');
 */
 
 
@@ -134,9 +144,3 @@ Route::filter('auth', function()
 
 // Route for Listings_Controller
 //Route::controller('listings');
-
-// Route for Tagcategories_Controllers_Controller
-Route::controller('tagcategories_controllers');
-
-// Route for Tagcategories_Controller
-Route::controller('tagcategories');

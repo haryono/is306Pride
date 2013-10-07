@@ -37,4 +37,5 @@ return array(
 
 	'docs' => array('handles' => 'docs'),
 	'bob' => array('bob'),
+	'resizer' => array( 'auto' => true ),
 );

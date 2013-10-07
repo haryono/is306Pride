@@ -1,6 +1,6 @@
 <?php  
 
-class Photo_Controller extends Base_Controller
+class Photos_Controller extends Base_Controller
 {
 	public $restful = true;
 

@@ -1,7 +1,7 @@
 <?php 
 
 
-class User_Controller extends Base_Controller
+class Users_Controller extends Base_Controller
 {
 	public $restful = true;
 
@@ -15,21 +15,24 @@ class User_Controller extends Base_Controller
 			->with('photos', $photos);
 	}
 
-	public function get_create()
-	{
-		$title = "Register";
-		return View::make('home.register')
-			->with('title', $title);
+	public function get_register(){
+		if(Auth::check()){
+			return View::make('pages.search');
+		}else{
+			return View::make('pages.registration');
+		}
+
 	}
 
-	public function post_create()
+	public function post_register()
 	{
 		$input = Input::all();
 
 		$rules = array(
-			'username' => 'required|unique:users',
+			'username' => 'required',
 			'email' => 'required|unique:users|email',
-			'password' => 'required'
+			'password' => 'required|Confirmed',
+			'password_confirmation'=>'Required',
 			);
 
 		$v = Validator::make($input, $rules);
@@ -45,7 +48,7 @@ class User_Controller extends Base_Controller
 			$user->email = $input['email'];
 			$user->password = $password;
 			$user->save();
-
+			Session::flash('success','Successfully Registered');
 			return Redirect::to('/');
 		}
 	}
@@ -64,8 +67,10 @@ class User_Controller extends Base_Controller
 			$credentials = array('username' => $input['email'], 'password' => $input['password']);
 
 			if(Auth::attempt($credentials)){
-				return Redirect::to('profile');
+				Session::flash('success','Welcome to RopeTo4.3');
+				return Redirect::to('search');
 			} else {
+				Session::flash('error','Invalid Login Credentials.');
 				return Redirect::to('/');
 			}
 		}
@@ -74,7 +79,7 @@ class User_Controller extends Base_Controller
 	public function get_logout()
 	{
 		Auth::logout();
-
+		Session::flush();
 		return Redirect::to('/');
 	}
 }
