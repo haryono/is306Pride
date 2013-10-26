@@ -7,7 +7,7 @@ class Flows_Controller extends Base_Controller {
 	public function get_index()
 	{
 		if(Auth::check()){
-			return View::make('pages.search');
+			return Redirect::to('search');
 		}else{
 			Session::forget('menu');
 			return View::make('pages.start');
@@ -33,7 +33,7 @@ class Flows_Controller extends Base_Controller {
 		return View::make('pages.search_results');
 	}
 
-	public function get_plan()
+	public function get_plan($userid)
 	{
 		Session::put('menu','plan');
 		return View::make('pages.plan');

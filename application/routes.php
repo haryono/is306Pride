@@ -38,19 +38,28 @@ Route::post('/', 'users@login');
 Route::get('register','users@register');
 Route::post('register','users@register');
 Route::get('logout','users@logout');
-
+Route::post('edituser','users@edituser');
+// Invitation controller
+Route::get('teaminvite','invitation@index');
+Route::get('accept/(:num)','invitation@accept');
+Route::get('reject/(:num)','invitation@reject');//invitation id
 // Course search controllers
 Route::get('search', 'courses@search');
 Route::post('search', 'courses@search');
-
 Route::get('searchresult', 'flows@searchresult');
-Route::get('plan', 'flows@plan');
-Route::get('learnmore','flows@learnmore');
-Route::get('invite','flows@invite');
+Route::get('recommend/(:any)','courses@recommend');
 
-Route::get('teamsearch','flows@teamsearch');
-Route::get('teamsearchresults','flows@teamsearchresults');
-Route::get('teaminvite','flows@teaminvite');
+// Plan controller
+Route::get('plan/(:any)', 'plans@view'); //uaerid
+Route::post('addtoplan','plans@addtoplan');
+Route::get('learnmore/(:any)','courses@learnmore');
+Route::get('invite/(:num)/(:num)','team@invite');//courseid userid
+Route::get('deletefromplan/(:any)','plans@deletefromplan');//planid
+//Route::get('teamsearch','flows@teamsearch');
+//Route::get('teamsearchresults','flows@teamsearchresults');
+Route::post('teamsearch','team@teamsearch'); //courseid, userid
+
+Route::post('getthebid','plans@getthebid'); //plan id
 Route::get('try',array(function(){
 	return View::make('pages.try');
 }));

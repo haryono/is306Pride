@@ -1,0 +1,67 @@
+.register{
+	margin-bottom: 7px;
+}
+
+.ui-li-desc {
+font-size: 15px;
+}
+
+.fb-comments, .fb-comments * {
+    width:100%;
+}
+
+.message {
+        display: none;
+        margin: 0 0 13px;
+        padding: 10px;
+        border: solid 1px #bd8; 
+    }
+
+IMG.slides{
+  height: 210px;
+}
+
+IMG.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 55%
+  }
+
+h5.title{
+  text-align:center;
+  color: #999999;
+}
+
+.ui-btn-left, .ui-btn-right, .ui-input-clear, .ui-btn-inline, .ui-grid-a .ui-btn, .ui-grid-b .ui-btn, .ui-grid-c .ui-btn, .ui-grid-d .ui-btn, .ui-grid-e .ui-btn, .ui-grid-solo .ui-btn {
+margin-right: 5px;
+margin-left: 0px;
+}
+
+
+.ui-listview-filter-inset {
+margin: -7px -5px;
+}
+
+.img-circle {
+-webkit-border-radius: 500px;
+-moz-border-radius: 500px;
+border-radius: 500px;
+}
+
+.ui-disabled {
+filter: Alpha(Opacity=30);
+opacity: 0.55;
+zoom: 1;
+}
+
+.plan-p{
+	margin-bottom: 0px;
+font-size: 15px;
+}
+
+
+.ui-header .ui-btn-inner, .ui-footer .ui-btn-inner, .ui-mini .ui-btn-inner {
+font-size: 12.5px;
+padding: .55em 5px .5em;
+}

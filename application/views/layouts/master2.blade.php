@@ -9,7 +9,7 @@
   
   <link rel="stylesheet" href="{{URL::to_asset('css/font-awesome.css');}}" />
   <link rel="stylesheet" href="{{URL::to_asset('assets/flex-slider/flexslider.css');}}">
-
+  <link rel="stylesheet" href="{{URL::to_asset('css/rewrite.css');}}">
 
 
   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -19,7 +19,7 @@
   <script src="{{URL::to_asset('assets/flex-slider/jquery.flexslider-min.js');}}"></script>
   <script src="{{URL::to_asset('js/main.js');}}"></script>
 
-  
+  <link rel="shortcut icon" href="https://trello-attachments.s3.amazonaws.com/518d0ed38d09d6390d0098bb/52626a0b416654aa0f001547/9dad15e94b298f195c7ab5b417d6b5f4/4.3.png">
 </head>
 <body>
 

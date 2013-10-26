@@ -6,5 +6,9 @@ class Team extends Eloquent
      {
           return $this->belongs_to('Course');
      }
+     public function plan()
+     {
+          return $this->has_one('Plan');
+     }
 
 }

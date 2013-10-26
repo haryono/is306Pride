@@ -11,4 +11,8 @@ class Course extends Eloquent
 	{
 		return $this->has_many('Courseprof');
 	}
+
+	public function comments(){
+		return $this->has_many('Comment');
+	}
 }

@@ -17,7 +17,7 @@ class Users_Controller extends Base_Controller
 
 	public function get_register(){
 		if(Auth::check()){
-			return View::make('pages.search');
+			return Redirect::to('search');
 		}else{
 			return View::make('pages.registration');
 		}
@@ -33,6 +33,7 @@ class Users_Controller extends Base_Controller
 			'email' => 'required|unique:users|email',
 			'password' => 'required|Confirmed',
 			'password_confirmation'=>'Required',
+			'enroll' => 'required|numeric'
 			);
 
 		$v = Validator::make($input, $rules);
@@ -44,9 +45,11 @@ class Users_Controller extends Base_Controller
 			$password = Hash::make($password);
 
 			$user = new User;
-			$user->username = $input['username'];
+			$user->name = $input['username'];
 			$user->email = $input['email'];
 			$user->password = $password;
+			$user->enroll = $input['enroll'];
+			$user->school = $input['school'];
 			$user->save();
 			Session::flash('success','Successfully Registered');
 			return Redirect::to('/');
@@ -81,5 +84,16 @@ class Users_Controller extends Base_Controller
 		Auth::logout();
 		Session::flush();
 		return Redirect::to('/');
+	}
+
+	public function post_edituser(){
+		$userid = Input::get('userid');
+		$user = User::find($userid);
+		$user->name = Input::get('name');
+		$user->enroll = Input::get('enroll');
+		$user->school = Input::get('school');
+		$user->save();
+
+		return Redirect::to('plan/'.$user->id);
 	}
 }

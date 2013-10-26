@@ -6,4 +6,10 @@ class Plan extends Eloquent
 	{
 		return $this->has_many('Course');
 	}
+	public function users(){
+		return $this->belongs_to('User');
+	}
+	public function team(){
+		return $this->has_one('Team');
+	}
 }

@@ -1,148 +1,153 @@
 @layout('layouts.master')
 @section('content')
 {{ render('common.errors_display') }}
-  <center><h2>Learn More</h2></center>
+<!--facebook-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=611013632284517";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+<center><h2>Learn More</h2></center>
 <ul data-role="listview" data-inset="true" >
     <li data-role="list-divider" data-theme="a">Brief information</li>
     <li data-theme="d">
-    <center><h4 style="white-space:normal">Interactive Design Protocol</h4></center>
-    <center><h4>Professor Benjamin</h4></center>
+    <center><h4 style="white-space:normal">{{$course->name}}</h4></center>
+    <center><h4>Professor {{$prof->name}}</h4></center>
     <div class="ui-grid-a">
-        <div class="ui-block-a"><input type="reset" value="e$ 80-90" data-mini="true" data-theme="g"></div>
-        <div class="ui-block-b"><input type="reset" value="3000 likes" data-mini="true" data-theme="g"></div>
+        <!--price and likes better to put it inside div rather than in the value-->
+        <div class="ui-block-a"><input type="reset" value='e$ {{number_format($avgprice, 2, '.', '')}}' data-mini="true" data-theme="g"></div>
+        <div class="ui-block-b"><input type="reset" value='{{$course->likecounts}} likes' data-mini="true" data-theme="g"></div>
     </div>  
-    <div class="ui-grid-a">
-        <div class="ui-block-a">
-        <select name="select-h-4c" id="select-h-4c"  data-mini="true"   data-theme="b">
-            <option value="">Term</option>
-            <option value="small">2013 term 1</option>
-            <option value="medium">2013 term 2</option>
-            <option value="large">2013 term 3</option>
-            </select>
+    {{Form::open('addtoplan','POST')}}
+        <div class="ui-grid-a">
+            @if(sizeof($planned) == 0)
+                <div class="ui-block-a">
+                    <select name="term" id="select-h-4c"  data-mini="true"   data-theme="e">
+                        <option value="201301" selected>2013 Term 1</option>
+                        <option value="201302">2013 Term 2</option>
+                        <option value="201403">2014 Term 1</option>
+                        <option value="201404">2014 Term 2</option>
+                    </select>
+                </div> 
+                <div class="ui-block-b">
+                    <button data-transition="slide" data-mini="true" data-role="button" data-icon="arrow-r" data-theme="e" data-iconpos="right" type="submit">Add to Plan</button>
+                </div>
+            @else
+                <div class="ui-block-a"><button disabled="" data-mini="true" data-theme="e">2013 Term 1</button></div>
+                <div class="ui-block-b"><button disabled="" data-mini="true" data-theme="e">Added</button></div>
+            @endif
         </div>
-        <div class="ui-block-b">
-            
-        <a href="{{URL::to('plan');}}" data-transition="slide" data-mini="true" data-role="button" data-icon="arrow-r" data-theme="e" data-iconpos="right">Add to Plan</a></div>
-    </div>
-
+    {{Form::hidden('courseid',$course->id)}}
+    {{Form::close()}}
     </li>
     <!--item 2-->
     <li data-role="list-divider" data-theme="a">Course Description</li>
     <li data-theme="d">
-    <br>    
-    <p style="white-space:normal">Learn how to design and prototype information systems that are useful, usable, and a pleasure to use. 
-    </p>
-    <p style="white-space:normal">Learn how to design and prototype information systems that are useful, usable, and a pleasure to use. 
-    </p>
+        <br><p style="white-space:normal">{{$course->description}}</p>
     </li>
     <!--item 3-->
-    <li data-role="list-divider" data-theme="a">Who add this to their plan?</li>
-    
+    <li data-role="list-divider" data-theme="a">Search students who have this in their plan</li>
     <li data-theme="d">
-    <div class="ui-grid-c">
-        <div class="ui-block-a">
-            <img src="{{URL::to_asset('gallerythumbs/1.jpg');}}" title="this is a description"/>
+        <div class="ui-grid-c">
+            <div class="ui-block-a">
+                <img class="img-circle" src="{{URL::to_asset('gallerythumbs/1.jpg');}}" title="this is a description"/>
+            </div>
+            <div class="ui-block-b">
+                <img class="img-circle" src="{{URL::to_asset('gallerythumbs/4.jpg');}}" title="Light!"/>
+            </div>
+            <div class="ui-block-c">
+                <img class="img-circle" src="{{URL::to_asset('gallerythumbs/5.jpg');}}" title="... and another"/>
+            </div>
         </div>
-        <div class="ui-block-b">
-            <img src="{{URL::to_asset('gallerythumbs/4.jpg');}}" title="Light!"/>
-        </div>
-        <div class="ui-block-b">
-            <img src="{{URL::to_asset('gallerythumbs/5.jpg');}}" title="... and another"/>
-        </div>
-    </div>
-    
-   
-    
-    <div class="ui-grid-a">
-        <div class="ui-block-a" style="width:0%">
-        </div>
-        <div class="ui-block-b" style="width:100%">
-            <a href="{{URL::to('teamsearch');}}" data-role="button" data-mini="true" data-icon="arrow-r" data-theme="e" data-iconpos="right" >Teammate Search</a>
-        </div>
-    </div>
-    
         
-    
+        {{Form::open('teamsearch','POST')}}
+        {{Form::hidden('courseid',$course->id)}}
+        <fieldset class="ui-grid-a"> 
+            <div class="ui-block-a">
+                <select name="searchterm" data-theme="e" data-mini="true">
+                    <option value="201301" selected>2013 Term 1</option>
+                    <option value="201302">2013 Term 2</option>
+                    <option value="201401">2014 Term 1</option>
+                    <option value="201402">2014 Term 2</option>
+                    <option value="201501">2015 Term 1</option>
+                    <option value="201502">2015 Term 2</option>
+                    <option value="201601">2016 Term 1</option>
+                    <option value="201602">2016 Term 2</option>
+                </select>
+            </div> 
+            <div class="ui-block-b"><input type="submit" value="Search" data-theme="e" data-icon="arrow-r" data-mini="true" data-iconpos="right"></div> 
+        </fieldset> 
+        {{Form::close()}}
     </li>
     <!--item 4-->
     <li data-role="list-divider" data-theme="a">Professor</li>
     <li data-theme="d">
-    <div class="ui-grid-a">
-        <div class="ui-block-a" style="width:30%">
-            <img src="{{URL::to_asset('gallerythumbs/default.png');}}">
+        <div class="ui-grid-a">
+            <div class="ui-block-a" style="width:30%">
+                <img class="img-circle" src="{{URL::to_asset('gallerythumbs/default.png');}}">
+            </div>
+            <div class="ui-block-b" style="width:70%">
+                <h4>Professor {{$prof->name}}</h4>
+                <p style="white-space:normal">{{$prof->description}}</p>
+            </div>
         </div>
-        <div class="ui-block-b" style="width:70%">
-            <h4>Professor title</h4>
-            <p style="white-space:normal">Brief Introduction Brief Introduction Brief Introduction Brief Introduction Brief Introduction Brief Introduction </p>
-        </div>
-    </div>
-
-    
-    
-    <div class="ui-grid-a">
-        <div class="ui-block-a" style="width:0%">
-        </div>
-        <div class="ui-block-b" style="width:100%">
-            <a href="#" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="e" data-mini="true">View CV</a>
-        </div>
-    </div>
+        <fieldset class="ui-grid-a">
+            <div class="ui-block-a">
+            </div>
+            <div class="ui-block-b">
+                @if($prof->cv_url != null)
+                    <a href={{$prof->cv_url}} data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="e" data-mini="true">View CV</a>
+                @else
+                    <a href="#" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="e" data-mini="true">View CV</a>
+                @endif
+            </div>
+        </fieldset>
     </li>
 </ul>
-    
 
+<?php $liked = Plan::where('user_id','=',Auth::user()->id)->where('course_id','=',$course->id)->get();?>
+@if(sizeof($liked)!=0 && $liked[0]->liked == 0)
+    <a href="{{URL::to('recommend/'.$course->id);}}" data-role="button" data-theme="e" >Like!</a>
+@else
+    <button disabled="" data-theme="e">Liked</button>
+@endif
 
-<ul data-role="listview" data-inset="true" >
-        <li data-role="list-divider" data-theme="a">My Comment</li>
-        <div class="ui-grid-a" >
-            <div class="ui-block-a" style="width:28%">
-                <img src="{{URL::to_asset('gallerythumbs/2.jpg');}}" width="100%" />
-            </div>
-            <div class="ui-block-b" style="width:62%">
-                <a href="index.html" data-role="button" data-inline="true" data-mini="true">Recommend</a>
-                 <a href="#popupComment" data-rel="popup" data-position-to="window"  data-transition="slide" data-role="button" data-inline="true" data-mini="true">Add Comment</a>
-            </div>
-        </div>
-        
-        <!-- pop up box -->
-        <div data-role="popup" id="popupComment" >
-            <form>
-                <div style="padding:10px 20px;">
-                    <h3>Add Comments</h3>
-                    <label for="un" class="ui-hidden-accessible">Title:</label>
-                    <input type="text" name="title" id="un" value="" placeholder="Title .." data-theme="e" >
-                    <label for="pw" class="ui-hidden-accessible">Comments:</label>
-                    <textarea cols="20" rows="8" name="comments" id="textarea" placeholder="Comments.." data-theme="e"></textarea>
-                    <button type="submit" data-theme="a" data-icon="check">Submit</button>
-                </div>
-            </form>
-        </div>    
-        <!--end of pop up box-->
-
-</ul>
-<ul data-role="listview" data-split-icon="check" data-split-theme="d" data-inset="true">
+<ul data-role="listview" data-split-icon="check" data-split-theme="d" data-inset="true" style="margin-top: -7px;">
     <li data-role="list-divider" data-theme="a">Comments</li>
 
-    <li><a href="#">
+<!--FacebookComment-->
+    <div class="fb-comments" data-href="http://pride-is306lab.rhcloud.com/index.php/learnmore/{{$course->id}}" data-colorscheme="light" data-numposts="5"></div>
+<!--FacebookComment-->
+   <!--@foreach($comments as $comment)
+        <li>
+        <a href="#">
         <img src="{{URL::to_asset('gallerythumbs/default.png');}}" width="100%">
-    <h2>Student Name</h2>
-    <p>Broken Bells</p></a>
+    <h2>{{$comment->user_name}}</h2>
+    <p>{{$comment->message}}</p></a>
         <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
     </li>
-    <li><a href="#">
-        <img src="{{URL::to_asset('gallerythumbs/default.png');}}" width="100%">
-    <h2>Student Name</h2>
-    <p>Hot Chip</p></a>
-        <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
-    </li>
-    <li><a href="#">
-        <img src="{{URL::to_asset('gallerythumbs/default.png');}}" width="100%">
-    <h2>Student Name</h2>
-    <p>Phoenix</p></a>
-        <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
-    </li>
+    @endforeach--> 
 </ul>
-    
 
+<!--script>
+$(".click").click(function (){
+    x= $(this).val();
+    var _url = $(location).attr('href');
+    alert(x);    
+    alert(_url);
+    $.ajax({
+          type:"POST",
+          url:"http://localhost/pride/php/index.php/learnmore/recommend",
+          data:{courseid:x}
+        }).done(function(data){
+            alert('success');
+        })
+ });
+</script-->
 
 @endsection
   
