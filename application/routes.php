@@ -39,6 +39,9 @@ Route::get('register','users@register');
 Route::post('register','users@register');
 Route::get('logout','users@logout');
 Route::post('edituser','users@edituser');
+//comments controllers
+Route::post('addcomment','comments@addcomment');
+
 // Invitation controller
 Route::get('teaminvite','invitation@index');
 Route::get('accept/(:num)','invitation@accept');

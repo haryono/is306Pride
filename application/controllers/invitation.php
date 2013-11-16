@@ -6,6 +6,7 @@ class Invitation_Controller extends Base_Controller {
 
 	public function get_index()
 	{
+		Session::put('menu','invitation');
 		$user = Auth::user();
 		$invitation = Invitation::where('receiver_id','=',$user->id)->where('read','=',0)->join('courses','invitations.course_id','=','courses.id')->get();
 		$myinvite = DB::query('select courses.name as `coursename`,users.name as `username`,`prof` from (select * from invitations where `sender_id` = ? ) as `invitations` join users on users.id = invitations.receiver_id join courses on invitations.course_id = courses.id order by invitations.created_at',array($user->id));

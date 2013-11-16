@@ -6,9 +6,6 @@
 font-size: 15px;
 }
 
-.fb-comments, .fb-comments * {
-    width:100%;
-}
 
 .message {
         display: none;

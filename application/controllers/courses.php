@@ -29,7 +29,7 @@ class Courses_Controller extends Base_Controller {
 	public function get_learnmore($courseid){
 		$course = Course::find($courseid);
 		$prof = Prof::find($course->prof_id);
-		$comments = $course->comments()->get();
+		$comments = $course->comments()->order_by('created_at','desc')->get();
 		$avgprice = DB::query('select avg(`bidprice`) as `avgprice` from `plans` where `course_id` = ?',array($courseid));
 		//return View::make('pages.try')->with('print',$avgprice[0]->avgprice);
 		$planned = Auth::user()->plans()->where('course_id','=',$courseid)->get();

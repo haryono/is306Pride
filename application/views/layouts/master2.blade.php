@@ -21,7 +21,7 @@
 
   <link rel="shortcut icon" href="https://trello-attachments.s3.amazonaws.com/518d0ed38d09d6390d0098bb/52626a0b416654aa0f001547/9dad15e94b298f195c7ab5b417d6b5f4/4.3.png">
 </head>
-<body>
+<body >
 
      <!-- Content Start -->
     <div data-role="content" align="center"style="max-width:400px; margin:0 auto;">

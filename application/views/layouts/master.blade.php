@@ -30,13 +30,13 @@
   </style>
   
 </head>
-<body>
+<body >
 
     <!-- Header -->
     <div data-role="header" data-position="fixed" >
-      <a href="javascript:history.go(-1)" data-transition="slide"  data-direction="reverse" data-icon="arrow-l">Back</a>
+      <a href="javascript:history.go(-1)" data-transition="slide"  data-direction="reverse" data-icon="arrow-l" rel="external">Back</a>
       <h1>Rope To 4.3</h1>
-      <a href="{{URL::to('logout')}}"  data-transition="slideup">Logout</a>
+      <a href="{{URL::to('logout')}}"  data-transition="slideup" rel="external">Logout</a>
     </div>
     <!-- End Header -->
     <!-- Content Start -->
@@ -45,12 +45,26 @@
    </div>
     <!-- End Content -->
   
-  <div data-role="footer"  data-position="fixed"  >
+  <div data-role="footer"  data-position="fixed">
     <div data-role="navbar" >
       <ul>
-          <li><a href="{{URL::to('search')}}"  data-icon="search">Search</a></li>
-          <li><a href="{{URL::to('plan/'.Auth::user()->id)}}"  data-icon="grid">Plan</a></li>
-          <li><a href="{{URL::to('teaminvite')}}" data-icon="check">Invitation</a></li>
+          @if(Session::get('menu') == "search")
+            <li><a href="{{URL::to('search')}}"  data-icon="search"  class="ui-btn-active">Search</a></li>
+          @else
+            <li><a href="{{URL::to('search')}}"  data-icon="search">Search</a></li>
+          @endif
+
+          @if(Session::get('menu') == "plan")
+            <li><a href="{{URL::to('plan/'.Auth::user()->id)}}"  data-icon="grid"  class="ui-btn-active">Plan</a></li>
+          @else
+            <li><a href="{{URL::to('plan/'.Auth::user()->id)}}"  data-icon="grid">Plan</a></li>
+          @endif
+
+          @if(Session::get('menu') == "invitation")
+            <li><a href="{{URL::to('teaminvite')}}" data-icon="check"  class="ui-btn-active">Invitation</a></li>
+          @else
+            <li><a href="{{URL::to('teaminvite')}}" data-icon="check">Invitation</a></li>
+          @endif
       </ul>
     </div>
   </div>

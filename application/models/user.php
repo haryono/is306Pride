@@ -10,4 +10,5 @@ class User extends Eloquent
 	public function plans(){
 		return $this->has_many('Plan');
 	}
+
 }

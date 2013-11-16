@@ -32,7 +32,7 @@ class Plans_Controller extends Base_Controller {
 	}
 
 	public function get_view($userid){
-		
+		Session::put('menu','plan');
 		$plans = DB::query('select courses.id as `courseid`,plans.id as `planid`,`prof`,`enrolled`,courses.name as `coursename`,`term`,`likecounts`,`team_id` from courses join plans on courses.id = plans.course_id and user_id = ?',array($userid));
 		$enrolled = array();
 		$notenrolled = array();

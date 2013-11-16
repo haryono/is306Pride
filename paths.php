@@ -25,7 +25,7 @@ $environments = array(
 
 	'local' => array('http://localhost:8888*', '*.dev'),
   'openshift' => array('*rhcloud.com*'),
-  'windows' => array('http://localhost:8080*'),
+  'windows' => array('http://localhost/*'),
 
 );
 

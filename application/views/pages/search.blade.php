@@ -7,7 +7,7 @@
 		 	<ul data-role="listview" data-filter-placeholder="Professor name/ course ID or Title" data-filter="true"  data-inset="true" data-mini="true" data-theme="d" data-filter-reveal="true">
 				@foreach($courses as $course)
 		        	<li class="ui-screen-hidden">
-		        		<a href="{{URL::to('learnmore/'.$course->id);}}">
+		        		<a href="{{URL::to('learnmore/'.$course->id);}}" rel="external">
 		                    <h3>{{$course->coursecode}}</h3>
 		                    <p class="topic" style="white-space:normal"><strong>{{$course->name}} </strong></p>
 		                    <p>Professor {{$course->prof}}</p>

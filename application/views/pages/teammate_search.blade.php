@@ -1,7 +1,15 @@
 @layout('layouts.master')
 @section('content')
 {{ render('common.errors_display') }}
-
+<!-- Remove Auto wrap on words -->
+<style>
+    .ui-btn-text {
+    white-space: normal;
+    }
+    .ui-li-desc {
+    white-space: normal;
+    }
+</style>
 
 <h2 align="center">Teammate Search</h2>
 <ul data-role="listview" data-inset="true" >
@@ -33,10 +41,10 @@
             <button disabled="" data-mini="true" data-theme="e">2016 Term 1</button>
           @elseif($selectedterm == '201602')
             <button disabled="" data-mini="true" data-theme="e">2016 Term 2</button>
-          @endif
+          @endif 
         </div>
         <div class="ui-block-b">
-          <a href="{{URL::to('learnmore/'.$course->id);}}" data-mini="true" data-transition="slide" data-role="button" data-icon="arrow-r" data-theme="e" data-iconpos="right" >Learn more</a>
+          <a href="{{URL::to('learnmore/'.$course->id);}}" data-mini="true" data-transition="slide" data-role="button" data-icon="arrow-r" data-theme="e" data-iconpos="right"  rel="external">Learn more</a>
         </div>
       </div>
     </li>
@@ -54,30 +62,23 @@
 
 
 
-
-
-
-
-
   <ul data-role="listview" data-inset="true" >
-    <li data-role="list-divider" data-theme="a">{{sizeof($students)}} Plans</li>
+    <li data-role="list-divider" data-theme="a">{{sizeof($students)}} Plans </li>
       <li data-theme="d">
         @if(sizeof($ownplan) == 0)
-          <h3>You need to add this course to your plan before inviting any groupmate</h3>
+          <h3>You have to add this course to plan to invite</h3>
 
-              <div class="ui-grid-c">
+              <div class="ui-grid-b">
                   <?php $i = 1; ?>
                   @foreach($students as $student)
                   <?php 
-                    $r = $i % 4;
+                    $r = $i % 3;
                     if($r == 1){
                       echo "<div class='ui-block-a'>";
                     }elseif ($r == 2) {
                       echo "<div class='ui-block-b'>";
-                    }elseif ($r == 3) {
-                      echo "<div class='ui-block-c'>";
                     }elseif ($r == 0) {
-                      echo "<div class='ui-block-d'>";
+                      echo "<div class='ui-block-c'>";
                     }
                   ?>
                       <img src="{{URL::to_asset('http://icons.iconarchive.com/icons/visualpharm/ios7v2/256/Users-Student-2-icon.png');}}" style="width:100%">
@@ -89,7 +90,7 @@
                     if($r == 0){
                   ?>
                     </div>
-                    <div class="ui-grid-c">
+                    <div class="ui-grid-b">
                   <?php
                     }
                   ?>
@@ -99,19 +100,17 @@
         @else
           <?php $teamid = $ownplan[0]->team_id;?>
 
-            <div class="ui-grid-c">
+            <div class="ui-grid-b">
                 <?php $i = 1; ?>
                 @foreach($students as $student)
                 <?php 
-                  $r = $i % 4;
+                  $r = $i % 3;
                   if($r == 1){
                     echo "<div class='ui-block-a'>";
                   }elseif ($r == 2) {
                     echo "<div class='ui-block-b'>";
-                  }elseif ($r == 3) {
-                    echo "<div class='ui-block-c'>";
                   }elseif ($r == 0) {
-                    echo "<div class='ui-block-d'>";
+                    echo "<div class='ui-block-c'>";
                   }
                 ?>
                     <img src="{{URL::to_asset('http://icons.iconarchive.com/icons/visualpharm/ios7v2/256/Users-Student-2-icon.png');}}" style="width:100%">
@@ -123,7 +122,7 @@
                     @elseif($teamid != null && $student->team_id == $teamid)
                       <button disabled="" data-mini="true" data-theme="e"><font size="1px">Teamed</font>  </button>
                     @elseif(in_array($student->id, $checkinvite))
-                      <button disabled="" data-mini="true" data-theme="e"><font size="1px">Pedding</font></button>
+                      <button disabled="" data-mini="true" data-theme="e"><font size="1px">Pendding</font></button>
                     @elseif(in_array($student->id, $checksender))
                       <?php $invitationid = array_search($student->id,$checksender);?>
                       <a href="{{URL::to('accept/'.$invitationid);}}" data-mini="true" data-transition="slide" data-role="button" data-icon="check" data-theme="a" data-iconpos="left" >Accept</a>
@@ -138,7 +137,7 @@
                   if($r == 0){
                 ?>
                   </div>
-                  <div class="ui-grid-c">
+                  <div class="ui-grid-b">
                 <?php
                   }
                 ?>

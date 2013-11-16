@@ -1,26 +1,19 @@
 @layout('layouts.master2')
 @section('content0')
-    <script>
-        $(document).ready(function(){
-            $(".message").fadeIn("200");
-                $(".message").fadeOut(5000);
-           
-        });
-    </script>
 
-        <img src="http://www.youthwork-practice.com/programs-youth-group-meetings/group-meeting-pictures/rope-ladder.gif" class="center">
-        <h5 class="title">Your Rope to 4.3 in SMU Academic Life</h6>
+        <img src="https://dl.dropboxusercontent.com/u/38440510/pride.png" width="100%">
+        <h5 class="title" style="margin-bottom: -15px;margin-top: 20px;">Your Rope to 4.3 in SMU Academic Life</h6>
           <!-- Slider End -->
 
         <div data-role="content">
         {{ render('common.errors_display') }}
             {{Form::open('/')}}
-            <input name="email"  placeholder="Email Address" value="" type="text" data-theme="d">
-            <input name="password"  placeholder="Password" value="" type="password" data-theme="d">
+            <input name="email" placeholder="Email Address" value="" type="text">
+            <input name="password" placeholder="Password" value="" type="password">
 
 
             <input type="submit" value="Login" data-theme="a" data-transition='slide'>
-            <a href="{{URL::to('register')}}" data-role="button" data-theme="e" data-transition='slide'>Not register? Click Here!</a>
+            <a href="{{URL::to('register')}}" data-role="button" data-theme="c" data-transition='slide'>Not register? Click Here!</a>
             {{Form::close()}}
         </div>
 

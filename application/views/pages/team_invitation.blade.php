@@ -7,7 +7,7 @@
   <?php $checkinvitation = 1;?>
   @foreach($invitations as $invitation)
     <ul data-role="listview" data-inset="true" >
-      <li data-role="list-divider" data-theme="a">Invitation</li>
+      <li data-role="list-divider" data-theme="a">Invitation Received</li>
       <li data-theme="d">
         <center><h4 style="white-space:normal">{{$invitation->name}}</h4></center>
         <center><h4>Professor {{$invitation->prof}}</h4></center>
@@ -40,9 +40,9 @@
           </div>
 
           <div class="ui-block-b">
-            <a href="{{URL::to('learnmore/'.$invitation->course_id);}}" data-mini="true" data-transition="slide" data-role="button" data-icon="arrow-r" data-theme="e" data-iconpos="right" >Learn more</a>
+            <a href="{{URL::to('learnmore/'.$invitation->course_id);}}" data-mini="true" data-transition="slide" data-role="button" data-icon="arrow-r" data-theme="e" data-iconpos="right"  rel="external">Learn more</a>
           </div>
-        </div>
+        </div> 
 
         <center><h4 style="white-space:normal">Team</h4></center>
         <?php $teammates = Plan::where('team_id','=',$invitation->team_id)->join('users','plans.user_id','=','users.id')->get();?>
@@ -138,7 +138,7 @@
 <ul data-role="listview" data-inset="true">
   @if(sizeof($myinvite) != 0)
     <?php $checkinvitation = 1;?>
-    <li data-role="list-divider" data-theme="a">Pending Invitation</li>
+    <li data-role="list-divider" data-theme="d">Invitation Sent (Pending)</li>
     @foreach($myinvite as $minvite)
       <li>
         <img src="{{URL::to_asset('http://icons.iconarchive.com/icons/visualpharm/ios7v2/256/Users-Student-2-icon.png');}}" style="margin-top: 6px;">

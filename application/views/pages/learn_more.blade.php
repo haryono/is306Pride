@@ -1,6 +1,15 @@
 @layout('layouts.master')
 @section('content')
 {{ render('common.errors_display') }}
+<!-- Remove Auto wrap on words -->
+<style>
+    .ui-btn-text {
+    white-space: normal;
+    }
+    .ui-li-desc {
+    white-space: normal;
+    }
+</style>
 <!--facebook-->
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -37,8 +46,22 @@
                     <button data-transition="slide" data-mini="true" data-role="button" data-icon="arrow-r" data-theme="e" data-iconpos="right" type="submit">Add to Plan</button>
                 </div>
             @else
-                <div class="ui-block-a"><button disabled="" data-mini="true" data-theme="e">2013 Term 1</button></div>
-                <div class="ui-block-b"><button disabled="" data-mini="true" data-theme="e">Added</button></div>
+                @if($planned[0]->term == '201301')
+                    <div class="ui-block-a"><button disabled="" data-mini="true" data-theme="e">2013 Term 1</button></div>
+                @elseif($planned[0]->term == '201302')
+                    <div class="ui-block-a"><button disabled="" data-mini="true" data-theme="e">2013 Term 2</button></div>
+                @elseif($planned[0]->term == '201401')
+                    <div class="ui-block-a"><button disabled="" data-mini="true" data-theme="e">2014 Term 1</button></div>
+                @elseif($planned[0]->term == '201402')
+                    <div class="ui-block-a"><button disabled="" data-mini="true" data-theme="e">2014 Term 2</button></div>
+                @elseif($planned[0]->term == '201501')
+                    <div class="ui-block-a"><button disabled="" data-mini="true" data-theme="e">2015 Term 1</button></div>
+                @elseif($planned[0]->term == '201502')
+                    <div class="ui-block-a"><button disabled="" data-mini="true" data-theme="e">2015 Term 2</button></div>
+                @else
+                    <div class="ui-block-a"><button disabled="" data-mini="true" data-theme="e">2013 Term 1</button></div>
+                @endif
+                    <div class="ui-block-b"><button disabled="" data-mini="true" data-theme="e">Added</button></div>
             @endif
         </div>
     {{Form::hidden('courseid',$course->id)}}
@@ -91,7 +114,7 @@
                 <img class="img-circle" src="{{URL::to_asset('gallerythumbs/default.png');}}">
             </div>
             <div class="ui-block-b" style="width:70%">
-                <h4>Professor {{$prof->name}}</h4>
+                <h4 style ="white-space: normal;">Professor {{$prof->name}}</h4>
                 <p style="white-space:normal">{{$prof->description}}</p>
             </div>
         </div>
@@ -109,19 +132,57 @@
     </li>
 </ul>
 
-<?php $liked = Plan::where('user_id','=',Auth::user()->id)->where('course_id','=',$course->id)->get();?>
+<?php $liked = Plan::where('user_id','=',Auth::user()->id)->where('course_id','=',$course->id)->where('enrolled','=',1)->get();?>
 @if(sizeof($liked)!=0 && $liked[0]->liked == 0)
-    <a href="{{URL::to('recommend/'.$course->id);}}" data-role="button" data-theme="e" >Like!</a>
+    <a href="{{URL::to('recommend/'.$course->id);}}" data-role="button" data-theme="e" rel="external">Like!</a>
+@elseif(sizeof($liked) == 0)
+    <button disabled="" data-theme="e">Like</button>
 @else
     <button disabled="" data-theme="e">Liked</button>
 @endif
 
 <ul data-role="listview" data-split-icon="check" data-split-theme="d" data-inset="true" style="margin-top: -7px;">
     <li data-role="list-divider" data-theme="a">Comments</li>
+    <div  data-mini="true" ><a href="#popupLogin" data-rel="popup" data-position-to="window"  data-transition="slide" data-role="button" data-mini="true">Add a comment</a></div>
+
+    <div data-role="content">
+        <ul id="list" class="touch" data-role="listview" data-icon="false" data-split-icon="delete">
+            @foreach($comments as $comment)
+                <li>
+                    <a href="#demo-mail" data-theme="a">
+                        <h3>{{$comment->user_name}}</h3>
+                        <p>{{$comment->message}}</p>
+                        <p class="ui-li-aside">{{$comment->created_at}}</p>
+                    </a>
+                    <!--a href="#" class="delete" data-theme="a">Delete</a-->
+                </li>
+            @endforeach
+        </ul>
+    </div><!-- /content -->
+    <div id="confirm" class="ui-content" data-role="popup" data-theme="a">
+        <p id="question">Are you sure you want to delete:</p>
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+                <a id="yes" data-role="button" data-mini="true" data-shadow="false" data-theme="a" data-rel="back">Yes</a>
+            </div>
+            <div class="ui-block-b">
+                <a id="cancel" data-role="button" data-mini="true" data-shadow="false" data-theme="a" data-rel="back">Cancel</a>
+            </div>
+        </div>
+    </div><!-- /popup -->
+</div>
+
+
+
+
+
+
+
 
 <!--FacebookComment-->
-    <div class="fb-comments" data-href="http://pride-is306lab.rhcloud.com/index.php/learnmore/{{$course->id}}" data-colorscheme="light" data-numposts="5"></div>
+    <!--div class="fb-comments" data-href="http://pride-is306lab.rhcloud.com/index.php/learnmore/{{$course->id}}" data-colorscheme="light" data-numposts="5"></div-->
 <!--FacebookComment-->
+
    <!--@foreach($comments as $comment)
         <li>
         <a href="#">
@@ -133,21 +194,25 @@
     @endforeach--> 
 </ul>
 
-<!--script>
-$(".click").click(function (){
-    x= $(this).val();
-    var _url = $(location).attr('href');
-    alert(x);    
-    alert(_url);
-    $.ajax({
-          type:"POST",
-          url:"http://localhost/pride/php/index.php/learnmore/recommend",
-          data:{courseid:x}
-        }).done(function(data){
-            alert('success');
-        })
- });
-</script-->
+<!-- pop up box -->
+<div data-role="popup" id="popupLogin" >
+    {{Form::open('addcomment','POST',array('data-ajax'=>'false'))}}
+        <div style="padding:10px 30px;">
+            <h3>Add Comments</h3>
+            <label for="un" class="ui-hidden-accessible">Title:</label>
+            <label for="pw" class="ui-hidden-accessiable">Comments:</label>
+            <textarea cols="30" rows="8" name="comment" id="textarea" placeholder="Comments.." data-theme="e"></textarea>
+            <label >Would you like to hide your name?</label><br />
+            <select name="anonymous" id="flip-6" data-role="slider" data-mini="true">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+            <input type="hidden" name="courseid" value='{{$course->id}}' />
+            <button type="submit" data-theme="a" data-icon="check">Submit</button>
+        </div>
+    {{Form::close()}}
+</div>    
+<!--end of pop up box-->
 
 @endsection
   
